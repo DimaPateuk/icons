@@ -72,4 +72,10 @@ Grid.prototype.getNewIcons = function (reqObj, cb) {
 window.onload = function () {
   var gridInstance = new Grid('grid');
   gridInstance.build(3,3);
+
+  var relod = document.querySelector('#relod');
+  relod.onclick = function () {
+    gridInstance.build(3,3);
+  };
+
 };

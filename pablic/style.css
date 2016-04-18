@@ -1,6 +1,14 @@
 .content {
   text-align: center;
-  padding-top: 30%;
+  padding-top: 10%;
+}
+
+.relodButton {
+  padding-bottom: 20px;
+}
+
+#relod {
+
 }
 
 .grid {
