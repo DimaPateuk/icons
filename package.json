@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/DimaPateuk/icons/issues"
   },
-  "homepage": "https://github.com/DimaPateuk/icons#readme"
+  "homepage": "https://github.com/DimaPateuk/icons#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "globule": "^1.0.0"
+  }
 }
