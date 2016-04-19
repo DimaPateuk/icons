@@ -8,11 +8,15 @@
 }
 
 #relod {
-
+  border: none;
+  padding: 10px 30px 10px 30px;
+  background-color: antiquewhite;
 }
 
 .grid {
   display: inline-block;
+  background-color: antiquewhite;
+  font-size: 0;
 }
 
 .cell {
@@ -20,9 +24,17 @@
   padding: 10px;
   height: 25px;
   width: 25px;
+  transition: background-color 0.5s ease;
 }
 
-.cell img {
-  height: inherit;
-  width: inherit;
+.alert-section {
+  height: 100px;
+}
+
+.correct {
+  background-color: green;
+}
+
+.incorrect {
+  background-color: red;
 }
