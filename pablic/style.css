@@ -3,20 +3,19 @@
   padding-top: 10%;
 }
 
-.relodButton {
-  padding-bottom: 20px;
-}
-
-#relod {
-  border: none;
-  padding: 10px 30px 10px 30px;
-  background-color: antiquewhite;
-}
-
 .grid {
   display: inline-block;
   background-color: antiquewhite;
   font-size: 0;
+  height: 0;
+  width: 0;
+  transition: height 1s ease;
+  transition: width 1s ease;
+
+}
+
+.hide {
+  display: none;
 }
 
 .cell {
