@@ -1,0 +1,2 @@
+function CollectionGridItems () {}
+function ModelGridItem() {}
