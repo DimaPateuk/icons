@@ -1,12 +1,11 @@
 function Grid(className) {
-  var self = this;
   className = className[0] === '.' ? className : '.' + className;
-  self.gridElement = document.querySelector(className);
-  self.height = 3;
-  self.width = 3;
-  self.elements = [];
-  self.allowClick = true;
-  self.channel = new Channel();
+  this.gridElement = document.querySelector(className);
+  this.height = 3;
+  this.width = 3;
+  this.elements = [];
+  this.allowClick = true;
+  this.channel = new Channel();
 };
 
 Grid.prototype.reactOnCorrectAnswer = function (data) {
@@ -148,9 +147,8 @@ Grid.prototype.getNewIcons = function (reqObj, cb) {
   xhr.send();
 };
 
-window.onload = function () {
-  var gridInstance = new Grid('grid');
-  gridInstance.initialize();
-  gridInstance.hideAllImg();
-  gridInstance.build();
-};
+Grid.prototype.start = function () {
+  this.initialize();
+  this.hideAllImg();
+  this.build();
+}

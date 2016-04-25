@@ -1,3 +1,0 @@
-function Model() {}
-
-function Collection () {}

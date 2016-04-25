@@ -28,6 +28,7 @@ function getRandArr (count, max) {
   return result;
 }
 
+app.use('/js', express.static(__dirname + '/js'));
 app.use('/pablic', express.static(__dirname + '/pablic'));
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/pablic/index.html');
