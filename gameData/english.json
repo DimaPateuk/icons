@@ -1,0 +1,15 @@
+{
+  "theme 1": {
+    "Phrasal verbs": [
+      { "value": "carry on",  "translation": ["продолжать"] },
+      { "value": "eat out",   "translation": ["есть вне дома"] },
+      { "value": "give up",   "translation": ["сдаваться", "бросать что то делать"] },
+      { "value": "join in",   "translation": ["присоединяться"] },
+      { "value": "send off",  "translation": ["отослать(выгнать игрока из игры)"] },
+      { "value": "take up",   "translation": ["начать"] },
+      { "value": "turn down", "translation": ["сделать потише"] },
+      { "value": "turn up",   "translation": ["сделать погромче"] }
+    ]
+  }
+
+}

@@ -3,6 +3,9 @@
   padding-top: 10%;
 }
 
+
+
+/*grid game*/
 .grid {
   display: inline-block;
   background-color: antiquewhite;
@@ -12,10 +15,6 @@
   transition: height 1s ease;
   transition: width 1s ease;
 
-}
-
-.hide {
-  display: none !important;
 }
 
 .cell {
@@ -28,6 +27,67 @@
 
 .alert-section {
   height: 100px;
+}
+
+
+/*english game*/
+.english {
+  display: inline-block;
+  background-color: antiquewhite;
+  width: 400px;
+  transition: height 1s ease;
+  transition: width 1s ease;
+}
+
+.english_value {
+  text-align: center;
+  padding: 30px;
+}
+
+.english_value label {
+  display: block;
+}
+
+.english_translation {
+  text-align: center;
+  padding: 25px;
+}
+
+.english_translation label {
+  display: block;
+}
+
+.english_buttons {
+  text-align: center;
+  padding: 40px;
+}
+
+.english_buttons button {
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hide {
+  display: none !important;
 }
 
 .correct {

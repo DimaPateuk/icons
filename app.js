@@ -3,6 +3,7 @@ var fs = require('fs');
 var app = express();
 var globule = require('globule');
 var icons = globule.find('pablic/icons/**/*.png');
+var english = require('./gameData/english.json');
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -46,6 +47,11 @@ app.get('/icons', function (req, res) {
       });
 });
 
+app.get('/english', function (req, res) {
+  res.json(english['theme 1']);
+});
+
+
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('App listening on port 3000!');
 });

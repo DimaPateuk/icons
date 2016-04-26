@@ -1,12 +1,15 @@
-function Grid(className) {
-  className = className[0] === '.' ? className : '.' + className;
-  this.gridElement = document.querySelector(className);
+function Grid(className, typetag) {
+  BaseGame.call(this, className, typetag, 'grid');
   this.height = 3;
   this.width = 3;
   this.elements = [];
   this.allowClick = true;
   this.channel = new Channel();
 };
+
+Grid.prototype = Object.create(BaseGame.prototype);
+
+Grid.prototype.constructor = Grid;
 
 Grid.prototype.reactOnCorrectAnswer = function (data) {
   if(self.height !== 10 && self.width !== 10) {
@@ -50,7 +53,7 @@ Grid.prototype.reactOnIncorrectAnswer = function (data) {
 
 Grid.prototype.initialize = function () {
   var self = this;
-  self.gridElement.onclick = function (e) {
+  self.element.onclick = function (e) {
     e.stopPropagation();
     e.preventDefault();
     if(!self.allowClick) return;
@@ -85,14 +88,14 @@ Grid.prototype.addedNodes = function (length, size) {
   for (var i = 0; i < size - length; i++) {
     var cell = this.createCell(i + length);
     this.elements.push(cell);
-    this.gridElement.appendChild(cell.ell);
+    this.element.appendChild(cell.ell);
   }
 };
 
 Grid.prototype.reduceNodes = function (length, size) {
   for (var i = length - 1; i >= size; i--) {
     var node = this.elements[i].ell;
-    this.gridElement.removeChild(node);
+    this.element.removeChild(node);
   }
   this.elements = this.elements.slice(0, size);
 };
@@ -126,25 +129,16 @@ Grid.prototype.build = function () {
     }
     self.hideAllImg();
     self.correctAnswer = data.correctAnswer;
-    self.gridElement.setAttribute('style', sizeStyle);
+    self.element.setAttribute('style', sizeStyle);
     setTimeout(function () { self.updateCellImg(data.randIconArr); }, 1000);
   });
 };
 
 Grid.prototype.getNewIcons = function (reqObj, cb) {
   var queryString = createParam(reqObj),
-      self = this,
-      xhr = new XMLHttpRequest();
+      self = this;
 
-  xhr.open('GET', '/icons' + '?' + queryString);
-  xhr.onreadystatechange = function (data) {
-    if (this.readyState === 4 && this.status === 200)
-    {
-      var respond = JSON.parse(data.target.responseText);
-      cb(respond);
-    }
-  }
-  xhr.send();
+  http('GET', '/icons' + '?' + queryString, cb)
 };
 
 Grid.prototype.start = function () {

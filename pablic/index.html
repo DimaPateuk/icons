@@ -2,17 +2,43 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <base href="/">
     <title>icons</title>
     <link rel="stylesheet" href="./pablic/style.css">
     <script src="./js/utils.js"></script>
     <script src="./js/channel.js"></script>
+    <script src="./js/baseGame.js"></script>
     <script src="./js/grid.js"></script>
-    <script src="./js/englishGrid.js"></script>
+    <script src="./js/english.js"></script>
     <script src="./js/main.js"></script>
   </head>
   <body>
-    <div class="content">
-      <div class="grid"></div>
-    </div>
+    <nav>
+      <a href="#grid">grid</a>
+      <a href="#english">english</a>
+    </nav>
+    <div class="content"></div>
+
+
+    <script id="english-template" type="text/html">
+      <div class="english_value">
+        <label>value</label>
+      </div>
+      <div class="english_translation">
+        <label>translation</label>
+        <label>translation</label>
+        <label>translation</label>
+        <label>translation</label>
+      </div>
+      <div class="english_buttons">
+        <div>
+          <button class="english_buttons-know">know</button>
+        </div>
+        <div>
+          <button class="english_buttons-do-not-know">don't know</button>
+        </div>
+      </div>
+    </script>
+
   </body>
 </html>
