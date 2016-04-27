@@ -35,7 +35,8 @@
   display: inline-block;
   background-color: antiquewhite;
   height: 400px;
-  //overflow: hidden;
+  overflow: hidden;
+  font-size: 30px;
   transition: height 1s ease;
   transition: width 1s ease;
 }
@@ -48,11 +49,14 @@
 }
 
 .english_value label, .english_translation label {
-
+  line-height: 30px;
+  word-wrap: break-word;
+  display: inline-block;
 }
 
 .english_timer {
-
+  position: relative;
+  bottom: 200px;
 }
 
 

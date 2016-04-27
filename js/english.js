@@ -3,6 +3,9 @@ function English (className, typetag) {
   this.data = {};
   this.dataReceived = false;
   this.channel = new Channel();
+
+  this.sections = ['Phrasal verbs'];
+
 }
 
 English.prototype = Object.create(BaseGame.prototype);
@@ -13,13 +16,16 @@ English.prototype.initialize = function() {
   var template = document.querySelector('#english-template');
   var self = this,
       queryString = createParam({
-        theme: 'theme 1'
+        section: 'section 1'
       });
 
   self.element.innerHTML = template.innerHTML;
-  self.questionWordElement = self.element.querySelector('.english_value label');
+  self.questionElement = self.element.querySelector('.english_value label');
   self.translationElement = self.element.querySelector('.english_translation label');
   self.timerElement = self.element.querySelector('.english_timer');
+
+  self.translationElement.style.visibility = 'hidden';
+
   http('GET', '/english' + '?' + queryString, function (data) {
     self.data = data;
     self.dataReceived = true;
@@ -34,34 +40,42 @@ English.prototype.initialize = function() {
 
 English.prototype.timeOffReaction = function () {
   var self = this;
+  self.translationElement.style.visibility = '';
+  self.timerElement.style.visibility = 'hidden';
   setTimeout(function nextQuestionDelay() {
-    self.stopTimer();
     self.build();
     self.startTimer();
-  });
+    self.translationElement.style.visibility = 'hidden';
+    self.timerElement.style.visibility = '';
+  }, 2000);
 };
 
 English.prototype.build = function() {
-  var theme = 'Phrasal verbs',///////
-      indexWord = getRandomInt(0, this.data[theme].length),
-      indexTranstalion =  getRandomInt(0, this.data[theme][indexWord].translation.length); ////
+  var section = this.sections[getRandomInt(0, this.sections.length)],
+      indexWord = getRandomInt(0, this.data[section].length),
+      indexTranstalion =  getRandomInt(0, this.data[section][indexWord].translation.length),
+      askTranslation = !!getRandomInt(0,1);
+  this.questionData = this.data[section][indexWord];
 
-  this.questionData = this.data[theme][indexWord];
-  this.questionWordElement.innerText = this.questionData.value;
-  this.translationElement.innerText = this.questionData.translation[indexTranstalion];
+  if(askTranslation) {
+    this.questionElement.innerText = this.questionData.value;
+    this.translationElement.innerText = this.questionData.translation[indexTranstalion];
+  } else {
+    this.translationElement.innerText = this.questionData.value;
+    this.questionElement.innerText = this.questionData.translation[indexTranstalion];
+  }
 };
 
 English.prototype.startTimer = function() {
-
   var self = this,
       tick = 0;
 
   self.timerElement.innerText = tick;
   self.timer = setInterval(function timerTick() {
-    
-    if(tick === 3) {
-      self.channel.emit('timeOff');
 
+    if(tick === 2) {
+      self.stopTimer();
+      self.channel.emit('timeOff');
     } else {
       tick++;
     }
