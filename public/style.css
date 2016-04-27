@@ -34,58 +34,29 @@
 .english {
   display: inline-block;
   background-color: antiquewhite;
-  width: 400px;
+  height: 400px;
+  //overflow: hidden;
   transition: height 1s ease;
   transition: width 1s ease;
 }
 
-.english_value {
+.english_value, .english_translation, .english_timer {
   text-align: center;
-  padding: 30px;
+  width: 300px;
+  height: 200px;
+  line-height: 200px;
 }
 
-.english_value label {
-  display: block;
+.english_value label, .english_translation label {
+
 }
 
-.english_translation {
-  text-align: center;
-  padding: 25px;
-}
+.english_timer {
 
-.english_translation label {
-  display: block;
-}
-
-.english_buttons {
-  text-align: center;
-  padding: 40px;
-}
-
-.english_buttons button {
-  margin-bottom: 5px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*common*/
 .hide {
   display: none !important;
 }

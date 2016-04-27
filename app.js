@@ -1,8 +1,7 @@
 var express = require('express');
-var fs = require('fs');
 var app = express();
 var globule = require('globule');
-var icons = globule.find('pablic/icons/**/*.png');
+var icons = globule.find('public/icons/**/*.png');
 var english = require('./gameData/english.json');
 
 function getRandomInt(min, max) {
@@ -30,9 +29,9 @@ function getRandArr (count, max) {
 }
 
 app.use('/js', express.static(__dirname + '/js'));
-app.use('/pablic', express.static(__dirname + '/pablic'));
+app.use('/public', express.static(__dirname + '/public'));
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/pablic/index.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 app.get('/icons', function (req, res) {
   var randIconArr = getRandArr(req.query.count, icons.length),

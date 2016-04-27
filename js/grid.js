@@ -5,13 +5,14 @@ function Grid(className, typetag) {
   this.elements = [];
   this.allowClick = true;
   this.channel = new Channel();
-};
+}
 
 Grid.prototype = Object.create(BaseGame.prototype);
 
 Grid.prototype.constructor = Grid;
 
 Grid.prototype.reactOnCorrectAnswer = function (data) {
+  var self = this;
   if(self.height !== 10 && self.width !== 10) {
     self.height++;
     self.width++;
@@ -31,6 +32,7 @@ Grid.prototype.reactOnCorrectAnswer = function (data) {
 };
 
 Grid.prototype.reactOnIncorrectAnswer = function (data) {
+  var self = this;
   if(self.height !== 3 && self.width !== 3) {
     self.height--;
     self.width--;
@@ -71,13 +73,12 @@ Grid.prototype.initialize = function () {
     }
    };
 
-  self.channel.on('correct', self.reactOnCorrectAnswer);
-  self.channel.on('incorrect', self.reactOnIncorrectAnswer);
+  self.channel.on('correct', self.reactOnCorrectAnswer.bind(this));
+  self.channel.on('incorrect', self.reactOnIncorrectAnswer.bind(this));
 };
 
-Grid.prototype.createCell = function (key) {
+Grid.prototype.createCell = function () {
   var cell = document.createElement('img');
-      self = this;
   cell.classList.add('cell');
   return {
           ell: cell
@@ -102,11 +103,11 @@ Grid.prototype.reduceNodes = function (length, size) {
 
 Grid.prototype.updateCellImg = function (randIconArr) {
   for (var i = 0; i < randIconArr.length; i++) {
-    self.elements[i].ell.classList.remove('hide');
-    self.elements[i].ell.setAttribute('src', randIconArr[i]);
-    self.elements[i].ell.setAttribute('key', i);
+    this.elements[i].ell.classList.remove('hide');
+    this.elements[i].ell.setAttribute('src', randIconArr[i]);
+    this.elements[i].ell.setAttribute('key', i);
   }
-}
+};
 
 Grid.prototype.hideAllImg = function () {
   for (var i = 0; i < this.elements.length; i++) {
@@ -116,7 +117,7 @@ Grid.prototype.hideAllImg = function () {
 
 Grid.prototype.build = function () {
   var self = this;
-  this.getNewIcons({ count: self.height * self.width }, function (data) {
+  self.getNewIcons({ count: self.height * self.width }, function (data) {
     var sizeStyle = 'width: ' + self.width * 45 + 'px;' +
                     'height:' + self.height * 45 + 'px;',
         size = self.height * self.width,
@@ -135,14 +136,13 @@ Grid.prototype.build = function () {
 };
 
 Grid.prototype.getNewIcons = function (reqObj, cb) {
-  var queryString = createParam(reqObj),
-      self = this;
+  var queryString = createParam(reqObj);
 
-  http('GET', '/icons' + '?' + queryString, cb)
+  http('GET', '/icons' + '?' + queryString, cb);
 };
 
 Grid.prototype.start = function () {
   this.initialize();
   this.hideAllImg();
   this.build();
-}
+};

@@ -9,7 +9,7 @@ function createParam(object) {
         }
     }
     return encodedString;
-};
+}
 
 function http(method, url, cb) {
   var xhr = new XMLHttpRequest();
@@ -19,6 +19,31 @@ function http(method, url, cb) {
       var respond = JSON.parse(data.target.responseText);
       cb(respond);
     }
-  }
+  };
   xhr.send();
+}
+
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function getRandArr (count, max) {
+  var result = [];
+
+  for (var i = 0;i < count;) {
+    var rand = getRandomInt(0, max),
+        add = true;
+    for (var j = 0; j < result.length; j++) {
+      if(result[j] === rand) {
+        add = false;
+        break;
+      }
+    }
+    if(add) {
+      result.push(rand);
+      i++;
+    }
+  }
+  return result;
 }
