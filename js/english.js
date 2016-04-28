@@ -4,7 +4,13 @@ function English (className, typetag) {
   this.dataReceived = false;
   this.channel = new Channel();
 
-  this.sections = ['Phrasal verbs'];
+  this.sections = [
+    'Topic vocabulary',
+    'Phrasal verbs',
+    'Prepositional phrases',
+    'Word formation',
+    'Word patterns'
+  ];
 
 }
 

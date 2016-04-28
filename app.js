@@ -47,7 +47,7 @@ app.get('/icons', function (req, res) {
 });
 
 app.get('/english', function (req, res) {
-  res.json(english['theme 1']);
+  res.json(english['Fun and games']);
 });
 
 
