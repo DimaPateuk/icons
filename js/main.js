@@ -5,14 +5,14 @@ function History(containerClass) {
   window.onhashchange = this.start.bind(this);
 }
 
-History.prototype.setGamePage = function (game, gameClass, typetag) {
+History.prototype.setGamePage = function (Game, GameClass, typetag) {
   var currentGame = window.stageObj.currentGame;
-  if(currentGame instanceof game) {
+  if(currentGame instanceof Game) {
     currentGame.build();
     return;
   }
   this.container.innerHTML = '';
-  currentGame = new game(gameClass, typetag);
+  currentGame = new Game(GameClass, typetag);
   currentGame.start();
   this.container.appendChild(currentGame.element);
   return;

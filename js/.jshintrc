@@ -1,6 +1,5 @@
 {
   "expr": true,
-  "node": true,
   "esnext": true,
   "bitwise": true,
   "eqeqeq": true,
@@ -13,6 +12,19 @@
   "asi": true,
   "debug": true,
   "globals": {
+    "BaseGame": false,
+    "Channel": false,
+    "document": false,
+    "createParam": false,
+    "setTimeout": false,
+    "getRandomInt": false,
+    "setInterval": false,
+    "clearInterval": false,
+    "console": false,
+    "window": false,
+    "Grid": false,
+    "location": false,
+    "English": false,
     "http": false
   }
 }
