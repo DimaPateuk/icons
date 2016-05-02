@@ -12,18 +12,33 @@ function English (className, typetag) {
     'Word patterns'
   ];
 
+  this.currentMode = 'theme';
+  this.modes = ['theme', 'texts'];
+
 }
 
 English.prototype = Object.create(BaseGame.prototype);
 
 English.prototype.constryctor = English;
 
-English.prototype.initialize = function() {
-  var template = document.querySelector('#english-template');
+English.prototype.chooseLearnMode = function(mode, name) {
   var self = this,
       queryString = createParam({
-        section: 'section 1'
+        name: name
       });
+  self.dataReceived = false;
+  self.currentMode = mode;
+  http('GET', '/english/' + mode + '/' + '?' + queryString, function (data) {
+    self.data = data;
+    self.dataReceived = true;
+    self.build();
+    self.channel.emit('dataReceived');
+  });
+};
+
+English.prototype.initialize = function() {
+  var template = document.querySelector('#english-template');
+  var self = this;
 
   self.element.innerHTML = template.innerHTML;
   self.questionElement = self.element.querySelector('.english_value label');
@@ -32,12 +47,8 @@ English.prototype.initialize = function() {
 
   self.translationElement.style.visibility = 'hidden';
 
-  http('GET', '/english' + '?' + queryString, function (data) {
-    self.data = data;
-    self.dataReceived = true;
-    self.build();
-    self.channel.emit('dataReceived');
-  });
+  //self.chooseLearnMode('theme', 'Fun and games');
+  self.chooseLearnMode('texts', 'text');
 
   self.channel.on('dataReceived', self.startTimer.bind(self));
   self.channel.on('timeOff', self.timeOffReaction.bind(self));
@@ -57,19 +68,45 @@ English.prototype.timeOffReaction = function () {
 };
 
 English.prototype.build = function() {
+  switch(this.currentMode) {
+    case 'texts': {
+      this.modeLearnWordsromText();
+      return;
+    }
+    default :{
+      this.modeLearnByTheme()
+      return;
+    }
+  }
+};
+
+English.prototype.makeAsk = function(questionData, indexTranstalion) {
+  var askTranslation = !!getRandomInt(0,2);
+  if(askTranslation) {
+    this.questionElement.innerText = questionData.value;
+    this.translationElement.innerText = questionData.translation[indexTranstalion];
+  } else {
+    this.translationElement.innerText = questionData.value;
+    this.questionElement.innerText = questionData.translation[indexTranstalion];
+  }
+};
+
+English.prototype.modeLearnByTheme = function() {
   var section = this.sections[getRandomInt(0, this.sections.length)],
       indexWord = getRandomInt(0, this.data[section].length),
-      indexTranstalion =  getRandomInt(0, this.data[section][indexWord].translation.length),
-      askTranslation = !!getRandomInt(0,1);
-  this.questionData = this.data[section][indexWord];
+      indexTranstalion = getRandomInt(0, this.data[section][indexWord].translation.length),
+      questionData = this.data[section][indexWord];
 
-  if(askTranslation) {
-    this.questionElement.innerText = this.questionData.value;
-    this.translationElement.innerText = this.questionData.translation[indexTranstalion];
-  } else {
-    this.translationElement.innerText = this.questionData.value;
-    this.questionElement.innerText = this.questionData.translation[indexTranstalion];
-  }
+  this.makeAsk(questionData, indexTranstalion);
+
+};
+
+English.prototype.modeLearnWordsromText = function() {
+  var indexWord = getRandomInt(0, this.data.length),
+      indexTranstalion = getRandomInt(0, this.data[indexWord].translation.length),
+      questionData = this.data[indexWord];
+
+  this.makeAsk(questionData, indexTranstalion);
 };
 
 English.prototype.startTimer = function() {

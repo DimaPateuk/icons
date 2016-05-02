@@ -46,8 +46,14 @@ app.get('/icons', function (req, res) {
       });
 });
 
-app.get('/english', function (req, res) {
-  res.json(english['Fun and games']);
+app.get('/english/theme', function (req, res) {
+  var theme = english[req.query.name];
+  res.json(theme || { error: 'this theme does not exist!!!' });
+});
+
+app.get('/english/texts', function (req, res) {
+  var textWords = english.Texts[req.query.name];
+  res.json(textWords || { error: 'this text words does not exist!!!' });
 });
 
 

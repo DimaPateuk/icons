@@ -97,5 +97,46 @@
       { "value": "a fan of",              "translation": ["фанат"] },
       { "value": "a game against",        "translation": ["игра против"] }
     ]
+  },
+  "Texts": {
+    "text": [
+      { "value": "celebration",                             "translation": ["празднование торжества"] },
+      { "value": "celebrate",                               "translation": ["праздновать"] },
+      { "value": "realize",                                 "translation": ["осознавать", "понимать", "представлять себе"] },
+      { "value": "effort",                                  "translation": ["усилие", "напряжение"] },
+      { "value": "sacrifice",                               "translation": ["жертва"] },
+      { "value": "for the sake of smb",                     "translation": ["для кого то"] },
+      { "value": "for smb's sake",                          "translation": ["ради кого либо"] },
+      { "value": "ocassion",                                "translation": ["сучай"] },
+      { "value": "turn out",                                "translation": ["оказаться"] },
+      { "value": "drive",                                   "translation": ["водить"] },
+      { "value": "hardly",                                  "translation": ["едва", "едва ли", "врядли", "с трудом"] },
+      { "value": "treat",                                   "translation": ["удовольствие", "наслаждение"] },
+      { "value": "porpose",                                 "translation": ["цель", "намерение", "замысел"] },
+      { "value": "rod",                                     "translation": ["удочка"] },
+      { "value": "fish",                                    "translation": ["рыба", "ловить рыбу"] },
+      { "value": "care",                                    "translation": ["любить что либо", "интересоваться чем либо"] },
+      { "value": "meal",                                    "translation": ["принятие пищи", "еда"] },
+      { "value": "fetch",                                   "translation": ["(сходить и) принести", "привести"] },
+      { "value": "trip",                                    "translation": ["поездка", "путешествие", "экскурсия"] },
+      { "value": "make",                                    "translation": ["делать (изготовлять, производить)"] },
+      { "value": "make a report",                           "translation": ["делать отчет"] },
+      { "value": "make a mistake",                          "translation": ["допускать ошибку"] },
+      { "value": "make money",                              "translation": ["зарабатывать"] },
+      { "value": "make a profit",                           "translation": ["получать прибыль"] },
+      { "value": "make living",                             "translation": ["зарабатывать на жизнь"] },
+      { "value": "make friends",                            "translation": ["приобретать друзей"] },
+      { "value": "make progress",                           "translation": ["делать успехи"] },
+      { "value": "make up one's mind",                      "translation": ["решиться"] },
+      { "value": "make smb do smth",                        "translation": ["заставлять кого либо сделать что либо"] },
+      { "value": "do",                                      "translation": ["делать (производить действие)"] },
+      { "value": "do some work (an exercise, a homework)",  "translation": ["делать какую то работы (упражнение, домашнюю работу)"] },
+      { "value": "do painting",                             "translation": ["рисовать"] },
+      { "value": "do the shopping (cooking, washing)",      "translation": ["делать покупки, готовить, стирать"] },
+      { "value": "to do a room",                            "translation": ["убрать комнату"] },
+      { "value": "do (smb) a favour",                       "translation": ["оказывать услугу, любезность"] },
+      { "value": "do one's best",                           "translation": ["очень постараться", "сделать все возможное"] }
+    ]
   }
+
 }
