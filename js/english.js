@@ -21,7 +21,7 @@ English.prototype = Object.create(BaseGame.prototype);
 
 English.prototype.constryctor = English;
 
-English.prototype.chooseLearnMode = function(mode, name) {
+English.prototype.chooseLearnMode = function (mode, name) {
   var self = this,
       queryString = createParam({
         name: name
@@ -36,7 +36,7 @@ English.prototype.chooseLearnMode = function(mode, name) {
   });
 };
 
-English.prototype.initialize = function() {
+English.prototype.initialize = function () {
   var template = document.querySelector('#english-template');
 
   var self = this;
@@ -74,7 +74,7 @@ English.prototype.timeOffReaction = function () {
   }, 2000);
 };
 
-English.prototype.build = function() {
+English.prototype.build = function () {
   switch(this.currentMode) {
     case 'text': {
       this.modeLearnWordsromText();
@@ -87,7 +87,7 @@ English.prototype.build = function() {
   }
 };
 
-English.prototype.makeAsk = function(questionData, indexTranstalion) {
+English.prototype.makeAsk = function (questionData, indexTranstalion) {
   var askTranslation = !!getRandomInt(0,2);
   if(askTranslation) {
     this.questionElement.innerText = questionData.value;
@@ -98,7 +98,7 @@ English.prototype.makeAsk = function(questionData, indexTranstalion) {
   }
 };
 
-English.prototype.modeLearnByTheme = function() {
+English.prototype.modeLearnByTheme = function () {
   var section = this.sections[getRandomInt(0, this.sections.length)],
       indexWord = getRandomInt(0, this.data[section].length),
       indexTranstalion = getRandomInt(0, this.data[section][indexWord].translation.length),
@@ -108,7 +108,7 @@ English.prototype.modeLearnByTheme = function() {
 
 };
 
-English.prototype.modeLearnWordsromText = function() {
+English.prototype.modeLearnWordsromText = function () {
   var indexWord = getRandomInt(0, this.data.length),
       indexTranstalion = getRandomInt(0, this.data[indexWord].translation.length),
       questionData = this.data[indexWord];
@@ -116,7 +116,7 @@ English.prototype.modeLearnWordsromText = function() {
   this.makeAsk(questionData, indexTranstalion);
 };
 
-English.prototype.startTimer = function() {
+English.prototype.startTimer = function () {
   var self = this,
       tick = 0;
 
@@ -133,12 +133,12 @@ English.prototype.startTimer = function() {
   }, 1000);
 };
 
-English.prototype.stopTimer = function() {
+English.prototype.stopTimer = function () {
   if(this.timer) {
     clearInterval(this.timer);
   }
 };
 
-English.prototype.start = function() {
+English.prototype.start = function () {
   this.initialize();
 };
