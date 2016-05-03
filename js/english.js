@@ -13,7 +13,7 @@ function English (className, typetag) {
   ];
 
   this.currentMode = 'theme';
-  this.modes = ['theme', 'texts'];
+  this.modes = ['theme', 'text'];
 
 }
 
@@ -38,17 +38,24 @@ English.prototype.chooseLearnMode = function(mode, name) {
 
 English.prototype.initialize = function() {
   var template = document.querySelector('#english-template');
+
   var self = this;
 
   self.element.innerHTML = template.innerHTML;
   self.questionElement = self.element.querySelector('.english_value label');
   self.translationElement = self.element.querySelector('.english_translation label');
   self.timerElement = self.element.querySelector('.english_timer');
+  self.selectModeElement = self.element.querySelector('#learn-mode');
 
   self.translationElement.style.visibility = 'hidden';
 
-  //self.chooseLearnMode('theme', 'Fun and games');
-  self.chooseLearnMode('texts', 'text');
+  self.selectModeElement.onchange = function (data) {
+    var params = data.target.value.split('|');
+    self.stopTimer();
+    self.chooseLearnMode.apply(self, params.map(function (item) { return item.trim(); }));
+  };
+
+  self.chooseLearnMode('text', 'text');
 
   self.channel.on('dataReceived', self.startTimer.bind(self));
   self.channel.on('timeOff', self.timeOffReaction.bind(self));
@@ -69,7 +76,7 @@ English.prototype.timeOffReaction = function () {
 
 English.prototype.build = function() {
   switch(this.currentMode) {
-    case 'texts': {
+    case 'text': {
       this.modeLearnWordsromText();
       return;
     }
