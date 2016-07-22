@@ -51,8 +51,8 @@ app.get('/english/theme', function (req, res) {
   res.json(theme || { error: 'this theme does not exist!!!' });
 });
 
-app.get('/english/text', function (req, res) {
-  var textWords = english.Texts[req.query.name];
+app.get('/english/words', function (req, res) {
+  var textWords = english.Words[req.query.name];
   res.json(textWords || { error: 'this text words does not exist!!!' });
 });
 

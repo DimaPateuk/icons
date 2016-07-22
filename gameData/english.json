@@ -98,8 +98,8 @@
       { "value": "a game against",        "translation": ["игра против"] }
     ]
   },
-  "Texts": {
-    "text": [
+  "Words": {
+    "words1": [
       { "value": "celebration",                             "translation": ["празднование торжества"] },
       { "value": "celebrate",                               "translation": ["праздновать"] },
       { "value": "realize",                                 "translation": ["осознавать", "понимать", "представлять себе"] },
@@ -136,7 +136,45 @@
       { "value": "to do a room",                            "translation": ["убрать комнату"] },
       { "value": "do (smb) a favour",                       "translation": ["оказывать услугу, любезность"] },
       { "value": "do one's best",                           "translation": ["очень постараться", "сделать все возможное"] }
+    ],
+    "Food Crops": [
+      { "value": "abandon",                                 "translation": ["покинуть"] },
+      { "value": "adversly",                                "translation": ["отрицательно"] },
+      { "value": "aggregate",                               "translation": ["объединять"] },
+      { "value": "cultivation",                             "translation": ["подготавливать"] },
+      { "value": "fertilize",                               "translation": ["удобрять"] },
+      { "value": "intensify",                               "translation": ["усиливать"] },
+      { "value": "irrigation",                              "translation": ["орашение"] },
+      { "value": "obtain",                                  "translation": ["получать"] },
+      { "value": "photosynthesis",                          "translation": ["фотосинтез"] },
+      { "value": "presipitation",                           "translation": ["обильное выпадение осадков"] },
+      { "value": "Food Crops",                              "translation": ["Сельхоз культуры"] }
+    ],
+    "Disaster": [
+      { "value": "Disaster",                                 "translation": ["катастрофа"] },
+      { "value": "anticipate",                               "translation": ["предвидить"] },
+      { "value": "catastrophic",                             "translation": ["катастрафический", "очень вредный"] },
+      { "value": "collide",                                  "translation": ["столкновение"] },
+      { "value": "eruption",                                 "translation": ["извержение"] },
+      { "value": "famine",                                   "translation": ["голод"] },
+      { "value": "flood",                                    "translation": ["наводнение"] },
+      { "value": "impact",                                   "translation": ["влияние"] },
+      { "value": "persevere",                                "translation": ["продолжать"] },
+      { "value": "plunge",                                   "translation": ["погружать"] },
+      { "value": "unleash",                                  "translation": ["высвобождать"] },
+      { "value": "leash",                                    "translation": ["поводок"] }
+    ],
+    "Evaluation and Migration": [
+      { "value": "adapt",                                    "translation": ["адаптироваться"] },
+      { "value": "diverse",                                  "translation": ["разнообразный"] },
+      { "value": "evolve",                                   "translation": ["развиваться"] },
+      { "value": "feature",                                  "translation": ["черта, особенность"] },
+      { "value": "generation",                               "translation": ["поколение"] },
+      { "value": "inherent",                                 "translation": ["основной", "природный", "естественный"] },
+      { "value": "migration",                                "translation": ["пережвижение"] },
+      { "value": "physical",                                 "translation": ["физический"] },
+      { "value": "process",                                  "translation": ["процесс"] },
+      { "value": "survive",                                  "translation": ["выживать"] }
     ]
   }
-
 }

@@ -12,8 +12,8 @@ function English (className, typetag) {
     'Word patterns'
   ];
 
-  this.currentMode = 'theme';
-  this.modes = ['theme', 'text'];
+  this.currentMode = 'words';
+  this.modes = ['theme', 'words'];
 
 }
 
@@ -55,7 +55,7 @@ English.prototype.initialize = function () {
     self.chooseLearnMode.apply(self, params.map(function (item) { return item.trim(); }));
   };
 
-  self.chooseLearnMode('text', 'text');
+  self.chooseLearnMode('words', 'words1');
 
   self.channel.on('dataReceived', self.startTimer.bind(self));
   self.channel.on('timeOff', self.timeOffReaction.bind(self));
@@ -76,7 +76,7 @@ English.prototype.timeOffReaction = function () {
 
 English.prototype.build = function () {
   switch(this.currentMode) {
-    case 'text': {
+    case 'words': {
       this.modeLearnWordsromText();
       return;
     }
